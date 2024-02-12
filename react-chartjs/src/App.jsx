@@ -12,21 +12,45 @@ const App = () => {
       <div className="dataCard customerCard">
         <Bar
           data={{
-            labels: ["A", "B", "C"],
+            labels: sourceData.map((data) => data.label),
             datasets: [
               {
-                label: "Revenue",
-                data: [200, 300, 400],
-              },
-              {
-                label: "Loss",
-                data: [50, 100, 350],
+                label: "Count ",
+                data: sourceData.map((data) => data.value),
+                backgroundColor: [
+                  "rgba(43, 63, 229, 0.8)",
+                  "rgba(250, 192, 19, 0.8)",
+                  "rgba(253, 135, 135, 0.8)",
+                ],
+                borderRadius: 5,
               },
             ],
           }}
         />
       </div>
-      <div className="dataCard categoryCard">Chart 3</div>
+      <div className="dataCard categoryCard">
+        <Doughnut
+          data={{
+            labels: sourceData.map((data) => data.label),
+            datasets: [
+              {
+                label: "Count",
+                data: sourceData.map((data) => data.value),
+                backgroundColor: [
+                  "rgba(43, 63, 229, 0.8)",
+                  "rgba(250, 192, 19, 0.8)",
+                  "rgba(253, 135, 135, 0.8)",
+                ],
+                borderColor: [
+                  "rgba(43, 63, 229, 0.8)",
+                  "rgba(250, 192, 19, 0.8)",
+                  "rgba(253, 135, 135, 0.8)",
+                ],
+              },
+            ],
+          }}
+        />
+      </div>
     </div>
   );
 };
