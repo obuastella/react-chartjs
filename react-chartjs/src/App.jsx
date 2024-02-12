@@ -1,7 +1,10 @@
+import "./App.css";
 const App = () => {
   return (
-    <div>
-      <h1>Hello world</h1>
+    <div className="App">
+      <div className="dataCard revenueCard">Chart 1</div>
+      <div className="dataCard customerCard">Chart 2</div>
+      <div className="dataCard categoryCard">Chart 3</div>
     </div>
   );
 };
