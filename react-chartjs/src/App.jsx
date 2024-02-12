@@ -36,6 +36,15 @@ const App = () => {
             ],
           }}
           options={{
+            animations: {
+              tension: {
+                duration: 2000,
+                easing: "linear",
+                from: 1,
+                to: 0,
+                loop: true,
+              },
+            },
             elements: {
               line: {
                 tension: 0.5,
