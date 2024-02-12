@@ -1,2 +1,3 @@
 # react-chartjs
-A simple chart application built with react-chart.js
+
+A simple chart built with react-chart.js
