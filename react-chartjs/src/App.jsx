@@ -3,11 +3,22 @@ import { Bar, Doughnut, Line } from "react-chartjs-2";
 
 import "./App.css";
 import sourceData from "./data/sourceData.json";
+import revenueData from "./data/revenueData.json";
 const App = () => {
   return (
     <div className="App">
       <div className="dataCard revenueCard">
-        Chart 1<div></div>
+        <Line
+          data={{
+            labels: revenueData.map((data) => data.label),
+            datasets: [
+              {
+                data: revenueData.map((data) => data.revenue),
+                cost: revenueData.map((data) => data.cost),
+              },
+            ],
+          }}
+        />
       </div>
       <div className="dataCard customerCard">
         <Bar
