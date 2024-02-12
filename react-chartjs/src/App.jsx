@@ -2,7 +2,7 @@ import { Chart as ChartJS } from "chart.js/auto";
 import { Bar, Doughnut, Line } from "react-chartjs-2";
 
 import "./App.css";
-
+import sourceData from "./data/sourceData.json";
 const App = () => {
   return (
     <div className="App">
@@ -17,6 +17,10 @@ const App = () => {
               {
                 label: "Revenue",
                 data: [200, 300, 400],
+              },
+              {
+                label: "Loss",
+                data: [50, 100, 350],
               },
             ],
           }}
