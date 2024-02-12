@@ -1,9 +1,17 @@
-import { Chart as ChartJS } from "chart.js/auto";
+import { Chart as ChartJS, defaults } from "chart.js/auto";
 import { Bar, Doughnut, Line } from "react-chartjs-2";
 
 import "./App.css";
 import sourceData from "./data/sourceData.json";
 import revenueData from "./data/revenueData.json";
+
+defaults.maintainAspectRatio = false;
+defaults.responsive = true;
+defaults.plugins.title.display = true;
+defaults.plugins.title.align = "start";
+defaults.plugins.title.font.size = 20;
+defaults.plugins.title.color = "black";
+
 const App = () => {
   return (
     <div className="App">
@@ -13,10 +21,31 @@ const App = () => {
             labels: revenueData.map((data) => data.label),
             datasets: [
               {
+                label: "Revenue",
                 data: revenueData.map((data) => data.revenue),
                 cost: revenueData.map((data) => data.cost),
+                backgroundColor: "#064FF0",
+                borderColor: "064FF0",
+              },
+              {
+                label: "Cost",
+                data: revenueData.map((data) => data.cost),
+                backgroundColor: "#FF3030",
+                borderColor: "#FF3030",
               },
             ],
+          }}
+          options={{
+            elements: {
+              line: {
+                tension: 0.5,
+              },
+            },
+            plugins: {
+              title: {
+                text: "Monthly Revenue & Cost",
+              },
+            },
           }}
         />
       </div>
@@ -36,6 +65,13 @@ const App = () => {
                 borderRadius: 5,
               },
             ],
+          }}
+          options={{
+            plugins: {
+              title: {
+                text: "Revenue Source",
+              },
+            },
           }}
         />
       </div>
@@ -60,9 +96,20 @@ const App = () => {
               },
             ],
           }}
+          options={{
+            plugins: {
+              title: {
+                text: "Revenue Sources",
+              },
+            },
+          }}
         />
       </div>
     </div>
   );
 };
 export default App;
+
+// ----------------------------------------------------------------
+// OPTIONS -enables us to specify certain properties for our chart, such as the smoothenss of the lines in the line chart, or the title of the chart or how the charts are rendered out in a responsive manner.
+// you can set the options either globally or locally.
